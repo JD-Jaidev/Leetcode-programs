@@ -17,8 +17,8 @@ def palindromeNumber(num):
 
 palindromeNumber(num)
 
-# OPTIMISED APPROACH : Rverse the intger mathematically using %,//. Then compare reversed number with original.
-# TIME COMPLEXITY : O(log n) The number of digits in an integer n is approximately log₁₀(n).
+# OPTIMISED APPROACH : Reverse the intger mathematically using %,//. Then compare reversed number with original.
+# TIME COMPLEXITY : O(n) The while loop runs once for each digit of num, stripping off one digit (num % 10) and building the reversed number each iteration.
 # SPACE COMPLEXITY : O(1) Only a few integer variables are used.
 
 num = 12321
@@ -37,3 +37,21 @@ def palindromeNumber(num):
     print(original == reverse)
 
 palindromeNumber(num)
+
+# ANOTHER TYPE APPROACH
+# TIME COMPLEXITY : Takes O(n) time to convert the number to a string.
+# SPACE COMPLEXITY : str(x) creates a new string of length n, which takes O(n), an extra space.
+
+x=12321
+def palindrome_number1(x):
+    s=str(x)
+    l=0
+    r=len(s)-1
+    while l<=r:
+        if s[l]==s[r]:
+            l+=1
+            r-=1
+        else:
+            return False
+    return True
+print(palindrome_number1(x))
